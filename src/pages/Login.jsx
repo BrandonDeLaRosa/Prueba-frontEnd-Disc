@@ -28,7 +28,7 @@ const Login = () => {
     const clearFields = (e) => {
         e.preventDefault();
 
-         reset({
+        reset({
             email: '',
             password: '',
             sistema: '',
@@ -41,12 +41,13 @@ const Login = () => {
     }
 
     return (
-        <form className='formContainer' onSubmit={handleSubmit(submit)}>
+        <div className='formPageContainer'>
+            <form className='formContainer' onSubmit={handleSubmit(submit)}>
             <h1>Please Log in!</h1>
 
             <label htmlFor="email">Email</label>
             <input className='logInp' type="email" id='email' name='email' placeholder='  Email' {...register("email")} />
-         
+
 
             {/* <div className='passWord'> */}
             <label htmlFor="password">Password</label>
@@ -59,10 +60,11 @@ const Login = () => {
             <div className='inpuBtnsCont'>
                 <button className='logBtnsCle' onClick={clearFields}>clear</button>
                 <button className='logSubBtn' type='submit'>Submit</button>
-                <button className='logBtnsVis' onClick={visiblePassword}>{isVisible? <i class="fa-regular fa-eye-slash"></i> : <i class="fa-regular fa-eye"></i>}</button>
+                <button className='logBtnsVis' onClick={visiblePassword}>{isVisible ? <i class="fa-regular fa-eye-slash"></i> : <i class="fa-regular fa-eye"></i>}</button>
             </div>
 
         </form>
+        </div>
 
     );
 };

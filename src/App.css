@@ -2,9 +2,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
+    /* margin: 0 auto; */
+   
 }
 
+
+/* .dark-mode {
+  background-color: #1a1919;
+  color: #999;
+  height: 100%;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #333;
+  height: 100%;
+  transition: background-color 0.25s ease-in-out;
+} */
 
 /* ! Loader */
 .blackBg{
@@ -15,6 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
   }
 
 .loader {
@@ -118,6 +135,7 @@
     align-items: center;
     height: 2.5rem;
     gap: 2rem;
+    /* background-color: aqua; */
 }
 
 .link{
@@ -127,7 +145,7 @@
 }
 .link:hover{
   text-decoration: underline;
-  color: rgb(98, 171, 193);
+  color: #1e90ff;
   transition: all .2s;
 }
 
@@ -138,15 +156,19 @@
     font-weight: bold;
 }
 .linkBtn:hover{
-  background-color: rgb(98, 171, 193);
+  background-color: #1e90ff;
   transition: all .4s;
 }
 
 /* ! LogIn Settings */
+.formPageContainer{
+  height: 100VH;
+}
 
     .formContainer{
         background-color: rgba(216, 255, 255, 0.199);
         height: 500px;
+        
         max-width: 350px;
         display: flex;
         gap: .5rem;
@@ -177,15 +199,21 @@
       transition: all .5s;
     }
     .logInp:focus{
-      background-color: rgb(98, 171, 193);
+      background-color: #1e90ff;
       color: white;
       border: none;
     }
     
     .logInpNum:focus{
-      background-color: rgb(98, 171, 193);
+      background-color: #1e90ff;
       color: white;
-      
+    }
+    .logInp:hover{
+     border: 1px solid #1e90ff;
+    }
+    
+    .logInpNum:hover{
+      border: 1px solid #1e90ff;
     }
 
     .inpuBtnsCont{
@@ -206,7 +234,7 @@
 
     .logBtnsVis:hover{
         color: rgb(98, 171, 193);
-        border: 2px solid rgb(98, 171, 193);
+        border: 2px solid #1e90ff;
     }
 
 
@@ -221,7 +249,7 @@
 
     .logBtnsCle:hover{
         color: rgb(98, 171, 193);
-        border: 2px solid rgb(98, 171, 193);
+        border: 2px solid #1e90ff;
     }
 
 
@@ -251,7 +279,7 @@
         border-radius: inherit;
         scale: 0;
         z-index: -1;
-        background-color: rgb(98, 155, 193);
+        background-color: #1e90ff;
         transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
       }
       
@@ -280,55 +308,338 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 1223px;
+    margin: 0 auto;
+    padding: 2rem;
+
 }
+
+
+/* TODO  INPUT                         */
+
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.input {
+  border-style: none;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  outline: none;
+  border-radius: 50%;
+  transition: .5s ease-in-out;
+  background-color: #1e90ff;
+  box-shadow: 0px 0px 3px #f3f3f3;
+  padding-right: 40px;
+  color: #030303;
+  font-weight: bold;
+}
+
+.input::placeholder,
+.input {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 17px;
+}
+
+.input::placeholder {
+  color: #8f8f8f;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border-style: none;
+  border-radius: 50%;
+  pointer-events: painted;
+  background-color: transparent;
+  transition: .2s linear;
+}
+
+.icon:focus ~ .input,
+.input:focus {
+  box-shadow: none;
+  width: 250px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 3px solid #1e90ff;
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+
+
+
+
+
+
+/* todo */
+
 
 .listVisible{
    padding: 1rem;
    width: 100%;
-   height: 100vh;
-   /* background-color: aqua; */
+ 
    display: flex;
    justify-content: center;
    align-items:left;
    flex-wrap: wrap;
-   /* flex-direction: column; */
-   gap: 1rem;
+  
+   gap: 2.5rem;
    list-style: none;
 }
 
-.listItems{
-    list-style: none;
+.hotelCard{
+  height: 300px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; 
+  padding: .1rem .5rem;
+  position: relative;
 }
+.hotelCard:hover{
+ transition: all .3s;
+ box-shadow: 5px 5px 10px rgba(115, 199, 255, 0.37);
+}
+
+.stars{
+  position: absolute;
+  top: 2px;
+  right: 10px;
+}
+
+#str{
+  font-size: 12px;
+  color: gold;
+}
+
+
+
+.hotelxts{
+  /* background-color: #1e90ff; */
+  display: flex;
+  justify-content: right;
+  gap: .5rem;
+  position: relative;
+  top: 40px;
+}
+
+.fa-solid{
+  font-size: 20px;
+}
+.fa-solid:hover{
+  transition: all .3s;
+  transform: scale(1.1);
+  color: #1e90ff;
+}
+
+
+.alojamiento{
+  font-size: 15px;
+  position: relative;
+  top: -10px;
+}
+
 
 .hotelsName{
-    width: 180px;
-    /* background-color: antiquewhite; */
+    font-size: 18px;
+    text-align: left;
+    font-weight: bold;
+    width: 100%;
+    height: 50px;
+}
+
+
+.telCp{
+  position:absolute;
+  bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: -10px;
+}
+
+.cp{
+  margin-top: -7px;
 }
 
 
 
+
+/* todo Travel Btn */
+
+.btnMsge{
+  margin: 0 auto 8px;
+}
+
+.detalsBtn {
+  outline: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 140px;
+  height: 40px;
+  border-radius: 0.5em;
+  box-shadow: 0 0.625em 1em 0 rgba(30, 143, 255, 0.35);
+  overflow: hidden;
+  position: relative;
+  top: 1.5rem;
+  right: -2rem;
+ }
+ 
+ .detalsBtn div {
+  transform: translateY(0px);
+  width: 100%;
+ }
+ 
+ .detalsBtn,
+ .detalsBtn div {
+  transition: 0.6s cubic-bezier(.16,1,.3,1);
+ }
+ 
+ .detalsBtn div span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0.75em 1.125em;
+ }
+ 
+ .detalsBtn div:nth-child(1) {
+  background-color: #1e90ff;
+ }
+ 
+ .detalsBtn div:nth-child(2) {
+  background-color: #21dc62;
+ }
+ 
+ .detalsBtn:hover {
+  box-shadow: 0 0.625em 1em 0 rgba(33, 220, 98, 0.35);
+ }
+ 
+ .detalsBtn:hover div {
+  transform: translateY(-50px);
+ }
+ 
+ .detalsBtn p {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+ }
+ 
+ .detalsBtn:active {
+  transform: scale(0.95);
+ }
 
 
 /*! Modal Settings */
 
 .modalContainer{
-    width: 80%;
+    width: 100%;
     height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    /* background-color: rgba(194, 36, 36, 0.795); */
-    /* position: absolute;  */
-    z-index: 10;
-    /* top: 10rem;  */
-    bottom: 0;
-    right: 0;  
+    position: relative; 
+    max-width: 1223px;
 }
 
-.infoContainer{
-    
+.modalX{
+  border: none;
+  background-color: transparent;
+}
+
+#closeModal{
+  position: absolute;
+  right: 0;
+  top: -50px;
+  color: #1e90ff;
+}
+
+#closeModal:hover{
+  transition: all .2s;
+  color: red;
+  transform: scale(1.1);
+
+}
+
+
+.hotelSelection{
+  display: flex;
+  gap: 3rem;
+}
+
+#arrows{
+  color: #1e90ff;
+  font-size: 30px;
+}
+#arrowBtn{
+  border: none;
+  background-color: transparent;
+}
+
+#arrowBtn:hover{
+  transition: all 3.s;
+  transform: scale(1.1);
+}
+
+.hotelName{
+  font-weight: bold;
+  font-size: 30px;
+}
+
+
+.generalInfo{
+    background-color: rgba(216, 255, 255, 0.199);
+    box-shadow:  6px 3px rgba(0, 0, 0, 0.212);
+    border-radius: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.detailedInfo{
+  background-color: rgba(216, 255, 255, 0.199);
+  box-shadow:  6px 3px rgba(0, 0, 0, 0.212);
+  border-radius: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.amenidades{
+  font-weight: bold;
+  font-size: 30px;
+ 
+}
+
+.detailedTitle{
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 15px;
 }
 
 .amenidadesContainer{
@@ -343,18 +654,26 @@
 
 
 
+
+
+
+
 /* !Carousel Settings */
 
 .carouselContainer{
     width: 100%;
-    height: 600px;
+    /* height: 600px; */
     /* background-color: aqua; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.carousel{
+    background-color: rgba(216, 255, 255, 0.199);
+    box-shadow:  6px 3px rgba(0, 0, 0, 0.212);
+    border-radius: 1rem;
+  }
+  
+  .carousel{
     max-width: 70%;
     overflow-x: scroll;
     width: 100%;
@@ -364,6 +683,8 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    scrollbar-width: none;
+    scrollbar-color: #1e90ff;
     /* background-color: beige; */
 }
 
@@ -376,4 +697,22 @@
   height: 570px;
   object-fit: contain;
   list-style: none;
+  
 }
+
+
+
+
+
+
+
+@media screen and (min-width: 700px){
+  .allInfo{
+    display: flex;
+  
+  }
+
+}
+
+
+

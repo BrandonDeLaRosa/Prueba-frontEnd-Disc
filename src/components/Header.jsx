@@ -8,9 +8,6 @@ const Header = () => {
         localStorage.setItem("token", "")
     }
 
-    if (modalOn) {
-        navigate("/modal")
-    }
 
     return (
         <div className='navBar'>
