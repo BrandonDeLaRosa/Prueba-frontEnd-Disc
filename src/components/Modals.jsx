@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 import getConfig from '../utils/getConfig';
 import { setIsLoading } from '../store/slices/loader.slice';
 import { useDispatch } from 'react-redux';
+
 
 const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex, theme }) => {
 
@@ -35,7 +35,7 @@ const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex, theme }) => {
 
 
     return (
-        <div className={theme? 'modalContainerDk' : 'modalContainer'}>
+        <div className={theme ? 'modalContainerDk' : 'modalContainer'}>
             <button className='modalX' onClick={() => setModalOn(false) && setListVis(true)}><i id='closeModal' class="fa-solid fa-circle-xmark"></i></button>
 
             <section className='hotelSelection'>
@@ -45,7 +45,7 @@ const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex, theme }) => {
             </section>
 
             <div className='allInfo'>
-                <section className={theme? 'generalInfoDk' : 'generalInfo'}>
+                <section className={theme ? 'generalInfoDk' : 'generalInfo'}>
                     <h3 className='hotelName'><b>{hotels?.nombre}</b></h3>
                     <h2>Informacion general:</h2>
                     <ul>
@@ -56,7 +56,7 @@ const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex, theme }) => {
                     </ul>
                 </section>
 
-                <div className={theme? 'detailedInfoDk' : 'detailedInfo'}>
+                <div className={theme ? 'detailedInfoDk' : 'detailedInfo'}>
                     <div >
                         <h2 className='amenidades'>Amenidades</h2>
 
@@ -100,6 +100,7 @@ const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex, theme }) => {
                     ) : "Coming soon..."
                 }
             </section>
+
         </div>
     );
 };
