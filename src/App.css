@@ -8,11 +8,12 @@
 }
 
 
-/* .dark-mode {
+.dark-mode {
   background-color: #1a1919;
-  color: #999;
+  color: #e0e0e0;
   height: 100%;
   transition: background-color 0.25s ease-in-out;
+  position: relative;
 }
 
 .light-mode {
@@ -20,7 +21,13 @@
   color: #333;
   height: 100%;
   transition: background-color 0.25s ease-in-out;
-} */
+  position: relative;
+}
+
+.toggler{
+  position: absolute;
+  top: 20px;
+}
 
 /* ! Loader */
 .blackBg{
@@ -133,8 +140,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 2.5rem;
+    height: 3.5rem;
     gap: 2rem;
+    padding: 10px ;
     /* background-color: aqua; */
 }
 
@@ -147,6 +155,7 @@
   text-decoration: underline;
   color: #1e90ff;
   transition: all .2s;
+  transform: 1;
 }
 
 .linkBtn{
@@ -159,16 +168,37 @@
   background-color: #1e90ff;
   transition: all .4s;
 }
+.linkDk{
+    text-decoration: none;
+    color: rgb(230, 230, 230);
+    font-weight: bold;
+}
+.linkDk:hover{
+  text-decoration: underline;
+  color: #1e90ff;
+  transition: all .2s;
+  transform: 1;
+}
+
+.linkBtnDk{
+    border: none;
+    padding: .5rem;
+    border-radius: .3rem;
+    font-weight: bold;
+}
+.linkBtnDk:hover{
+  background-color: #1e90ff;
+  transition: all .4s;
+}
 
 /* ! LogIn Settings */
 .formPageContainer{
-  height: 100VH;
+  height: 100vh;
 }
 
     .formContainer{
         background-color: rgba(216, 255, 255, 0.199);
         height: 500px;
-        
         max-width: 350px;
         display: flex;
         gap: .5rem;
@@ -179,7 +209,24 @@
         margin: 5rem auto;
         border-radius: 1rem;
         border: 1px solid rgb(253, 253, 253);
-        box-shadow: 5px 6px 3px rgba(0, 0, 0, 0.212); 
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.39); 
+        font-weight: bold;
+    }
+
+    .formContainerDk{
+        background-color: rgba(216, 255, 255, 0.199);
+        height: 500px;
+        max-width: 350px;
+        display: flex;
+        gap: .5rem;
+        flex-direction: column;
+        padding: 2rem;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 5rem auto;
+        border-radius: 1rem;
+        /* border: 1px solid #1e90ff; */
+        box-shadow: 0px 0px 17px #1e8fff48; 
         font-weight: bold;
     }
 
@@ -198,23 +245,8 @@
       border: 1px solid rgba(0, 0, 0, 0.205);
       transition: all .5s;
     }
-    .logInp:focus{
-      background-color: #1e90ff;
-      color: white;
-      border: none;
-    }
+   
     
-    .logInpNum:focus{
-      background-color: #1e90ff;
-      color: white;
-    }
-    .logInp:hover{
-     border: 1px solid #1e90ff;
-    }
-    
-    .logInpNum:hover{
-      border: 1px solid #1e90ff;
-    }
 
     .inpuBtnsCont{
         display: flex;
@@ -231,28 +263,34 @@
         border: 1px solid rgba(0, 0, 0, 0.205);
         background-color: rgba(128, 128, 128, 0.055);
     }
-
-    .logBtnsVis:hover{
-        color: rgb(98, 171, 193);
-        border: 2px solid #1e90ff;
+    .logBtnsVisDk{
+        border-radius: .5rem;
+        height: 24px;
+        margin-top: 1rem;
+        border: 1px solid rgba(194, 67, 67, 0.205);
+        background-color: rgba(128, 128, 128, 0.055);
+        color: #e0e0e0;
     }
 
+   
 
     .logBtnsCle{
         border-radius: .5rem;
         height: 24px;
         margin-top: 1rem;
-        border: 1px solid rgba(0, 0, 0, 0.205);
+        border: 1px solid rgba(238, 238, 238, 0.747);
         padding: 1px;
         background-color: rgba(128, 128, 128, 0.055);
     }
-
-    .logBtnsCle:hover{
-        color: rgb(98, 171, 193);
-        border: 2px solid #1e90ff;
+    .logBtnsCleDk{
+        border-radius: .5rem;
+        height: 24px;
+        margin-top: 1rem;
+        border: 1px solid rgba(240, 240, 240, 0.205);
+        padding: 1px;
+        background-color: rgba(128, 128, 128, 0.055);
+        color: #e0e0e0;
     }
-
-
 
     .logSubBtn {
         cursor: pointer;
@@ -297,8 +335,115 @@
       .logSubBtn:active {
         scale: 1;
       }
+
+
+      .logSubBtnDk {
+        cursor: pointer;
+        position: relative;
+        padding: 10px 24px;
+        font-size: 18px;
+        color: rgb(236, 236, 236);
+        border: 2px solid rgba(238, 238, 238, 0.61);
+        /* border: 1px solid rgba(0, 0, 0, 0.205); */
+        border-radius: 15px;
+        background-color: transparent;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+        overflow: hidden;
+      }
+
+
+      .logSubBtnDk::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 50px;
+        height: 50px;
+        border-radius: inherit;
+        scale: 0;
+        z-index: -1;
+        background-color: #1e90ff;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+      }
       
+      .logSubBtnDk:hover::before {
+        scale: 3;
+      }
+      
+      .logSubBtnDk:hover {
+        color: #ffffff;
+        scale: 1.1;
+        box-shadow: 0 0px 20px rgba(98, 193, 193, 0.4);
+        border: 2px solid rgb(98, 171, 193);
+      }
+      
+      .logSubBtnDk:active {
+        scale: 1;
+      }
+      
+
+
+
+    /* Todo HOVERS AND FOCUS */
+
+      .logInp:focus{
+        background-color: #1e90ff;
+        color: white;
+        border: none;
+      }
+      
+      .logInpNum:focus{
+        background-color: #1e90ff;
+        color: white;
+      }
+
+      .logInp:hover{
+       border: 1px solid #1e90ff;
+      }
+      
+      .logInpNum:hover{
+        border: 1px solid #1e90ff;
+      }
+
+      .logBtnsCle:hover{
+          color: rgb(98, 171, 193);
+          border: 2px solid #1e90ff;
+      }
+      .logBtnsVis:hover{
+        color: rgb(98, 171, 193);
+        border: 2px solid #1e90ff;
+    }
+
+
     
+    .logInpDk:hover{
+      border: 1px solid #1e90ff;
+     }
+     
+     .logInpNumDk:hover{
+       border: 1px solid #1e90ff;
+     }
+
+      .logBtnsCleDk:hover{
+          color: rgb(98, 171, 193);
+          border: 2px solid #1e90ff;
+      }
+      .logBtnsVisDk:hover{
+        color: rgb(98, 171, 193);
+        border: 2px solid #1e90ff;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* !Hotels Settings */
@@ -404,17 +549,36 @@
 .hotelCard{
   height: 300px;
   width: 200px;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.103);
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly; 
   padding: .1rem .5rem;
   position: relative;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.39); 
 }
+.hotelCardDk{
+  height: 300px;
+  width: 200px;
+  border: 1px solid rgba(184, 184, 184, 0.103);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; 
+  padding: .1rem .5rem;
+  position: relative;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.39); 
+}
+
+
 .hotelCard:hover{
  transition: all .3s;
- box-shadow: 5px 5px 10px rgba(115, 199, 255, 0.37);
+ box-shadow: 0px 0px 15px rgba(115, 199, 255, 0.37);
+}
+.hotelCardDk:hover{
+ transition: all .3s;
+ box-shadow: 0px 0px 10px rgba(115, 199, 255, 0.37);
 }
 
 .stars{
@@ -550,7 +714,7 @@
 /*! Modal Settings */
 
 .modalContainer{
-    width: 100%;
+    width: 80%;
     height: 80%;
     display: flex;
     flex-direction: column;
@@ -559,6 +723,23 @@
     gap: 3rem;
     position: relative; 
     max-width: 1223px;
+    border-radius: 1rem;
+    border: 1px solid rgba(77, 77, 77, 0.349);
+    box-shadow: 0px 0px 15px #1e8fff54;
+}
+.modalContainerDk{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    position: relative; 
+    max-width: 1223px;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.349);
+    box-shadow: 0px 0px 15px #1e8fff54;
 }
 
 .modalX{
@@ -568,8 +749,8 @@
 
 #closeModal{
   position: absolute;
-  right: 0;
-  top: -50px;
+  right: 15px;
+  top: 15px;
   color: #1e90ff;
 }
 
@@ -608,7 +789,20 @@
 
 .generalInfo{
     background-color: rgba(216, 255, 255, 0.199);
-    box-shadow:  6px 3px rgba(0, 0, 0, 0.212);
+    box-shadow:  6px 3px rgba(0, 0, 0, 0.062);
+    border-radius: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.generalInfoDk{
+    background-color: rgba(216, 255, 255, 0.199);
+    box-shadow:  6px 3px rgba(182, 182, 182, 0.062);
     border-radius: 1rem;
     padding: 1rem;
     border-radius: 1rem;
@@ -620,9 +814,18 @@
     align-items: center;
 }
 
+.detailedInfoDk{
+  background-color: rgba(216, 255, 255, 0.199);
+  box-shadow:  6px 3px rgba(182, 182, 182, 0.062);
+  border-radius: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
 .detailedInfo{
   background-color: rgba(216, 255, 255, 0.199);
-  box-shadow:  6px 3px rgba(0, 0, 0, 0.212);
+  box-shadow:  6px 3px rgba(0, 0, 0, 0.062);
   border-radius: 1rem;
   padding: 1rem;
   border-radius: 1rem;
@@ -660,17 +863,29 @@
 
 /* !Carousel Settings */
 
+
+
 .carouselContainer{
-    width: 100%;
-    /* height: 600px; */
-    /* background-color: aqua; */
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(216, 255, 255, 0.199);
-    box-shadow:  6px 3px rgba(0, 0, 0, 0.212);
+    box-shadow:  6px 3px rgba(0, 0, 0, 0.062);
     border-radius: 1rem;
+    margin-bottom: 1rem;
+  }
+.carouselContainerDk{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(216, 255, 255, 0.199);
+    box-shadow:  6px 3px rgba(182, 182, 182, 0.171); 
+    border-radius: 1rem; 
+    margin-bottom: 1rem;
   }
   
   .carousel{

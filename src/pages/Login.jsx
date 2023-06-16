@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({theme}) => {
 
     const { handleSubmit, register, reset } = useForm();
     const navigate = useNavigate()
@@ -40,9 +40,11 @@ const Login = () => {
         setIsVisible(!isVisible)
     }
 
+    console.log(theme);
+
     return (
         <div className='formPageContainer'>
-            <form className='formContainer' onSubmit={handleSubmit(submit)}>
+            <form className={theme? 'formContainerDk' : 'formContainer'} onSubmit={handleSubmit(submit)}>
             <h1>Please Log in!</h1>
 
             <label htmlFor="email">Email</label>
@@ -58,9 +60,9 @@ const Login = () => {
             <input className='logInpNum' type="number" id='sistema' name='sistema' placeholder='  id' {...register("sistema")} />
 
             <div className='inpuBtnsCont'>
-                <button className='logBtnsCle' onClick={clearFields}>clear</button>
-                <button className='logSubBtn' type='submit'>Submit</button>
-                <button className='logBtnsVis' onClick={visiblePassword}>{isVisible ? <i class="fa-regular fa-eye-slash"></i> : <i class="fa-regular fa-eye"></i>}</button>
+                <button className={theme? 'logBtnsCleDk' : 'logBtnsCle'} onClick={clearFields}>clear</button>
+                <button className={theme? 'logSubBtnDk' : 'logSubBtn'} type='submit'>Submit</button>
+                <button className={theme? 'logBtnsVisDk' : 'logBtnsVis'} onClick={visiblePassword}>{isVisible ? <i class="fa-regular fa-eye-slash"></i> : <i class="fa-regular fa-eye"></i>}</button>
             </div>
 
         </form>

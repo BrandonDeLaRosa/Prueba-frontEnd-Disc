@@ -13,15 +13,15 @@ import { useState } from 'react'
 function App() {
 
   const isLoading = useSelector(state => state.loader)
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
 
   return (
     <HashRouter>
-        <div className={darkMode ? "dark-mode" : "ligh-mode"}>
-        {/* <div className='container'> */}
-        <Header/>
-        {isLoading && <BackgroundLoad />}
-        {/* <div className='toggler'>
+          {isLoading && <BackgroundLoad />}
+      <div className={darkMode ? "dark-mode" : "ligh-mode"}>
+        <div className='container'>
+          <Header theme={darkMode} />
+          <div className='toggler'>
             {
               darkMode ?
                 (
@@ -31,21 +31,21 @@ function App() {
                 ) :
                 (
                   <>
-                    <span onClick={() => setDarkMode(true)} style={{ color:  "#c96dfd" }}> <i class="fa-solid fa-moon"></i></span>
+                    <span onClick={() => setDarkMode(true)} style={{ color: "#c96dfd" }}> <i class="fa-solid fa-moon"></i></span>
                   </>
                 )
             }
           </div>
-        </div> */}
+        </div>
         <Routes>
-          <Route path='/' element={<Login/>}/>
-        <Route element={<ProtectedRoutes />}> 
-          <Route path='/hotels' element={<Hotels/>}/>
-          <Route path='/modal' element={<Modals/>}/>
-        </Route>
+          <Route path='/' element={<Login theme={darkMode}/>} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path='/hotels' element={<Hotels theme={darkMode}/>} />
+            <Route path='/modal' element={<Modals />} />
+          </Route>
         </Routes>
-    </div>
-      </HashRouter>
+      </div>
+    </HashRouter>
   )
 }
 

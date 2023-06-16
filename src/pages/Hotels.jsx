@@ -5,21 +5,21 @@ import Modals from '../components/Modals';
 import { useDispatch } from 'react-redux';
 import { setIsLoading } from '../store/slices/loader.slice';
 
-const Hotels = () => {
+const Hotels = ({theme}) => {
 
     const [hotels, setHotels] = useState([])
     const [modalOn, setModalOn] = useState(false)
     const [selectedItemIndex, setSelectedItemIndex] = useState(null);
     const dispatch = useDispatch()
-    // const [userSearch, setUserSearch] = useState("")
+    const [userSearch, setUserSearch] = useState("")
 
     
 
     useEffect(() => {
         // if (userSearch !== "") {
-            // admin/host/search/{search}
-            // axios.get(`https://desarrollo.api.noktos.com/api/admin/hosts/search/${userSearch}`, getConfig())
-                // .then(res => setHotels(res.data))
+        //     // admin/host/search/{search}
+        //     axios.get(`https://desarrollo.api.noktos.com/api/admin/hosts/${userSearch}`, getConfig())
+        //         .then(res => setHotels(res.data))
         // } else {
             dispatch(setIsLoading(true))
             axios.get("https://desarrollo.api.noktos.com/api/admin/hosts/50", getConfig())
@@ -41,7 +41,7 @@ const Hotels = () => {
         <div className='hotelsListContainer'>
             {modalOn ?
                 <>
-                    <Modals setModalOn={setModalOn} selectedIndex={selectedItemIndex} setSelectedItemIndex={setSelectedItemIndex} />
+                    <Modals theme={theme} setModalOn={setModalOn} selectedIndex={selectedItemIndex} setSelectedItemIndex={setSelectedItemIndex} />
                 </>
                 :
                 <>
@@ -65,7 +65,7 @@ const Hotels = () => {
                             hotels?.map((hotel, index) => (
                                 <li className='listitems' key={hotel.id}>
                                     <br />
-                                    <div className='hotelCard'>
+                                    <div className={theme? 'hotelCardDk' : 'hotelCard'}>
                                         <div className='stars'>
                                             <i id='str' class="fa-solid fa-star"></i>
                                             <i id='str' class="fa-solid fa-star"></i>

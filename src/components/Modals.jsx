@@ -5,7 +5,7 @@ import getConfig from '../utils/getConfig';
 import { setIsLoading } from '../store/slices/loader.slice';
 import { useDispatch } from 'react-redux';
 
-const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex }) => {
+const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex, theme }) => {
 
     const [hotels, setHotels] = useState([])
     const dispatch = useDispatch()
@@ -31,11 +31,11 @@ const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex }) => {
 
     console.log(hotels);
     console.log(selectedIndex);
-
+    console.log(theme);
 
 
     return (
-        <div className='modalContainer'>
+        <div className={theme? 'modalContainerDk' : 'modalContainer'}>
             <button className='modalX' onClick={() => setModalOn(false) && setListVis(true)}><i id='closeModal' class="fa-solid fa-circle-xmark"></i></button>
 
             <section className='hotelSelection'>
@@ -45,7 +45,7 @@ const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex }) => {
             </section>
 
             <div className='allInfo'>
-                <section className='generalInfo'>
+                <section className={theme? 'generalInfoDk' : 'generalInfo'}>
                     <h3 className='hotelName'><b>{hotels?.nombre}</b></h3>
                     <h2>Informacion general:</h2>
                     <ul>
@@ -56,16 +56,16 @@ const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex }) => {
                     </ul>
                 </section>
 
-                <div className='detailedInfo'>
+                <div className={theme? 'detailedInfoDk' : 'detailedInfo'}>
                     <div >
                         <h2 className='amenidades'>Amenidades</h2>
 
                         <section className='amenidadesContainer'>
                             <ul>{hotels?.amenidades?.map(amenidad => (
                                 <li key={amenidad.id}>
-                                    <h3>{amenidad.nombre}</h3>
+                                    <h5>{amenidad.nombre}</h5>
                                     <h5>Regalmento y descriptcion</h5>
-                                    {amenidad.descripcion}
+                                    -{amenidad.descripcion}
                                 </li>
                             ))}</ul>
                         </section>
@@ -76,8 +76,8 @@ const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex }) => {
                         <h2 className='detailedTitle'>Habitaciones</h2>
                         <ul>{hotels?.habitaciones?.map(habitacion => (
                             <li key={habitacion.id}>
-                                <h3>Tipo de habitacion: </h3>
-                                {habitacion.nombre}S,  <p>{habitacion.cantidad} habitaciones.</p>
+                                <h5>Tipo de habitacion: </h5>
+                                -{habitacion.nombre}S,  <p>-{habitacion.cantidad} habitaciones.</p>
                             </li>
                         ))}</ul>
                     </section>
@@ -97,7 +97,7 @@ const Modals = ({ setModalOn, selectedIndex, setSelectedItemIndex }) => {
                                 ))
                             }
                         </ul>
-                    ) : null
+                    ) : "Coming soon..."
                 }
             </section>
         </div>
